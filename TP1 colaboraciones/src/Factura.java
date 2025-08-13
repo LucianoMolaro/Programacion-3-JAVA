@@ -72,7 +72,11 @@ public class Factura {
         return itemsFacturas;
     }
 
-    public void setItemsFacturas(int ca) {
-        this.itemsFacturas = new String[5][ca+1];
+    public void setItemsFacturas(String[][] itemsFacturas) {
+        this.itemsFacturas = itemsFacturas;
+    }
+
+    public void abrirItemsFacturas(int ca) {
+        this.itemsFacturas = new String[ca][5];
     }
 }
