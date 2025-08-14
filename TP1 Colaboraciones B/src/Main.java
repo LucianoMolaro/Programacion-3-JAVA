@@ -114,6 +114,8 @@ public class Main {
             System.out.println("-------------------------------------------------------------------------------------------");
             System.out.println("-------------------------------------------------------------------------------------------");
             System.out.println("Detalles de articulos facturados:");
+            System.out.println("Articulo" + "\t" + "Denominacion" + "\t" + "Preccio u/kg" + "\t" + "Subtotal");
+
             break;
 
         }

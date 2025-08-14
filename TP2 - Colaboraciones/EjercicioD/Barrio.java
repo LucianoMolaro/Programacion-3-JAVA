@@ -62,12 +62,12 @@ public class Barrio {
         }
         return total;
     }
-    public double getSuperficieTotalCubierta(){
-        double totalViviendas=0;
+    public double getSuperficieTotalCubierta() throws Exception {
+        double total=0;
         for (Vivienda a:viviendas){
-            totalViviendas++;
+            total +=a.getMetrosCuadradosCubiertos();
         }
-        return getSuperficieTotalTerreno()*totalViviendas;
+        return total;
 
 
     }

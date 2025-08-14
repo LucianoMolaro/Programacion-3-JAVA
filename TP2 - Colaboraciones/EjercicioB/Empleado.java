@@ -8,51 +8,77 @@ class Empleado {
     private long cuit;
     private String domicilio;
     private String email;
+
+    private RegimenHorario regimenHorario;
+
     private List<Asistencia> asistencias = new ArrayList<>();
     private List<Tardanza> tardanzas = new ArrayList<>();
-    private RegimenHorario regimenHorario;
+
+
+    public Empleado() {
+
+    }
+
+    public Empleado(String nombre, long cuit, String domicilio, String email) {
+        this.nombre = nombre;
+        this.cuit = cuit;
+        this.domicilio = domicilio;
+        this.email = email;
+    }
+
+    public Empleado(String nombre) {
+        this.nombre = nombre;
+    }
 
     public void agregarAsistencia(Asistencia asistencia) {
         asistencias.add(asistencia);
         asistencia.setEmpleado(this);
     }
 
-    public void agregarTardanza(Tardanza tardanza) {
-        tardanzas.add(tardanza);
-        tardanza.setEmpleado(this);
+    public List<Asistencia> getAsistencias() {
+        return asistencias;
     }
 
-    public void setRegimenHorario(RegimenHorario regimen) {
-        this.regimenHorario = regimen;
-        regimen.setEmpleado(this);
+    public void setAsistencias(List<Asistencia> asistencias) {
+        this.asistencias = asistencias;
     }
 
-    // b2
-    public List<Asistencia> getAsistenciaMesAnio(int mes, int anio) {
-        List<Asistencia> resultado = new ArrayList<>();
-        for (Asistencia a : asistencias) {
-            int mesAsistencia = a.getFecha().getMonth() + 1;
-            int anioAsistencia = a.getFecha().getYear() + 1900;
-            if (mesAsistencia == mes && anioAsistencia == anio) {
-                resultado.add(a);
-            }
-        }
-        return resultado;
+    public List<Tardanza> getTardanzas() {
+        return tardanzas;
     }
-    //b3
-    public List<Tardanza> getDiasConTardanza(int mes, int anio) {
-        List<Tardanza> resultado = new ArrayList<>();
-        for (Asistencia a : getAsistenciaMesAnio(mes, anio)) {
-            if (a.getTipo().equals("E")) {
-                int horaDif = (a.getHora() * 60 + a.getMinuto()) -
-                        (regimenHorario.getHoraIngreso() * 60 + regimenHorario.getMinutoIngreso());
-                if (horaDif > 15) {
-                    Tardanza t = new Tardanza(a.getTipo(), a.getFecha(), a.getHora(), a.getMinuto());
-                    t.setEmpleado(this);
-                    resultado.add(t);
-                }
+
+    public void setTardanzas(List<Tardanza> tardanzas) {
+        this.tardanzas = tardanzas;
+    }
+
+    public RegimenHorario getRegimenHorario() {
+        return regimenHorario;
+    }
+
+    public void setRegimenHorario(RegimenHorario regimenHorario) {
+        this.regimenHorario = regimenHorario;
+        regimenHorario.setEmpleado(this);
+    }
+    public List<Tardanza> getDiasConTardanza(int mes, int anio){
+        List<Tardanza> tardanzas = new ArrayList<>();
+        for (Asistencia a : this.asistencias){
+            if (a.getHora()>=this.regimenHorario.getHoraIngreso() || this.regimenHorario.getMinutoIngreso()+a.getMinuto()>15){
+                Tardanza tard = new Tardanza(a.getHora(), a.getMinuto(), a.getFecha(),this, "I");
+                tardanzas.add(tard);
             }
         }
-        return resultado;
+
+        return tardanzas;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "regimenHorario=" + regimenHorario +
+                ", email='" + email + '\'' +
+                ", domicilio='" + domicilio + '\'' +
+                ", cuit=" + cuit +
+                ", nombre='" + nombre + '\'' +
+                '}';
     }
 }

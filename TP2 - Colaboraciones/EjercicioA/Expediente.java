@@ -13,6 +13,26 @@ public class Expediente {
     private List<Control> controles = new ArrayList<>();
     private List<Expediente> expedientesAsociados = new ArrayList<>();
 
+    public List<Control> getControles() {
+        return controles;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Expediente() {
+    }
+
+    public Expediente(int id, String letra, int numero, String descripcion, String tipo, String ambito) {
+        this.id = id;
+        this.letra = letra;
+        this.numero = numero;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.ambito = ambito;
+    }
+
     public String getCaratulaExpediente() {
         return numero + "-" + letra + "-" + descripcion;
     }
@@ -51,8 +71,9 @@ public class Expediente {
     }
 
     private void listaExpedientesRecursivo(Expediente exp, List<Expediente> acumulador) {
+        acumulador.add(exp);
+
         for (Expediente hijo : exp.expedientesAsociados) {
-            acumulador.add(hijo);
             listaExpedientesRecursivo(hijo,acumulador);
         }
     }
