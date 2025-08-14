@@ -1,3 +1,5 @@
+package EjercicioD;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +53,23 @@ public class Barrio {
 
     public void addVivienda(Vivienda v) {
         viviendas.add(v);
+    }
+
+    public double getSuperficieTotalTerreno(){
+        double  total=0;
+        for(Vivienda a:viviendas){
+            total+=a.getSuperficieTerreno();
+        }
+        return total;
+    }
+    public double getSuperficieTotalCubierta(){
+        double totalViviendas=0;
+        for (Vivienda a:viviendas){
+            totalViviendas++;
+        }
+        return getSuperficieTotalTerreno()*totalViviendas;
+
+
     }
 
 }

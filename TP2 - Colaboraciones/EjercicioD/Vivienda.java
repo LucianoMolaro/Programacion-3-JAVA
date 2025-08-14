@@ -1,3 +1,7 @@
+package EjercicioD;
+
+import com.sun.source.tree.ReturnTree;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +13,7 @@ public class Vivienda {
 
     Barrio barrio;
     List<Habitacion> habitaciones = new ArrayList<>();
+
 
     public Vivienda() {
     }
@@ -70,6 +75,18 @@ public class Vivienda {
     }
     public void addHabitacion(Habitacion hab) {
             habitaciones.add(hab);
+    }
+    public double getMetrosCuadradosCubiertos() throws Exception {
+        double totalM2=0;
+        for (Habitacion hab : habitaciones){
+            totalM2+=hab.getMetrosCuadrados();
+        }
+
+        if(totalM2>superficieTerreno){
+            throw new Exception("La superficie cubierta no puede ser mayor a la superficie del terreno");
+        }
+
+        return totalM2;
     }
 
 }

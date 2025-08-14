@@ -1,5 +1,8 @@
 package EjercicioA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Control {
     private int id;
     private String denominacion;
