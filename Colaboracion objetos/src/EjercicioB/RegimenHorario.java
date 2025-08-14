@@ -1,3 +1,5 @@
+package EjercicioB;
+
 public class RegimenHorario {
     private long id;
     private int horaIngreso;

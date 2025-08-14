@@ -1,3 +1,5 @@
+package EjercicioA;
+
 class Control {
     private int id;
     private String denominacion;
