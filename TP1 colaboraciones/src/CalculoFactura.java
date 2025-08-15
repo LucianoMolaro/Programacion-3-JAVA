@@ -94,11 +94,27 @@ public class CalculoFactura {
         double recargo = ti*0.05;
         fc.setRecargo(recargo);
         fc.setMontoFinal(recargo+ti);
+        System.out.println("FACTURA FINAL");
+        System.out.println("Fecha: " + fc.getFecha());
+        System.out.println("Cuit Cliente: " + fc.getCuitCliente());
+        System.out.println("Razon Social: " + fc.getRazonSocial());
+        System.out.println("Tipo de Pago: " + fc.getTipoPago());
+        System.out.println("Nimero de Factura: " + fc.getNroFactura());
 
-
-
-
-
+        System.out.println("\nDetalle de artículos:");
+        System.out.println("Código\tNombre\t\tPrecio\tCantidad\tSubtotal");
+        String[][] itemsFinales = fc.getItemsFacturas();
+        for (int i = 0; i < itemsFinales.length; i++) {
+            System.out.println(itemsFinales[i][0] + "\t\t"
+                    + itemsFinales[i][1] + "\t\t\t"
+                    + itemsFinales[i][2] + "\t\t"
+                    + itemsFinales[i][3] + "\t\t\t\t"
+                    + itemsFinales[i][4]);
+        }
+        System.out.println("Monto total sin recargo: " + fc.getMontoTotaltems());
+        System.out.println("Recargo: $" + fc.getRecargo());
+        System.out.println("Monto Final: $" + fc.getMontoFinal());
+        
 
     }
     private static int buscarCodigo(String a){

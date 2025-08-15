@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JAVA MAGNI 3.iml" filepath="$PROJECT_DIR$/JAVA MAGNI 3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP1 Colaboraciones B/TP1 Colaboraciones B.iml" filepath="$PROJECT_DIR$/TP1 Colaboraciones B/TP1 Colaboraciones B.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP1 colaboraciones/TP1 colaboraciones.iml" filepath="$PROJECT_DIR$/TP1 colaboraciones/TP1 colaboraciones.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TP2 - Colaboraciones/TP2 - Colaboraciones.iml" filepath="$PROJECT_DIR$/TP2 - Colaboraciones/TP2 - Colaboraciones.iml" />
+    </modules>
+  </component>
+</project>
