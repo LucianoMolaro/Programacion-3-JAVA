@@ -6,4 +6,5 @@ public class DetalleHistoriaClinica {
     private int id;
     private Date fechaAtencion;
     private String sintomas, diagnostico, observaciones;
+    private HistoriaClinica historiaClinica;
 }
