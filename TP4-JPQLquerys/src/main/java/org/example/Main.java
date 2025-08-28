@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import managers.ClienteManager;
+import managers.FacturaDetalleManager;
 import managers.FacturaManager;
 
 import java.time.LocalDate;
@@ -18,8 +20,8 @@ public class Main {
         try {
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("tp4jpql");
             EntityManager em = emf.createEntityManager();
-            EntityTransaction tx = em.getTransaction();
-            tx.begin();
+            em.getTransaction().begin();
+
 //
 //            UnidadMedida unidad1 =  new UnidadMedida("unidad");
 //            em.persist(unidad1);
@@ -80,14 +82,32 @@ public class Main {
 //            factura.addDetalleFactura(facturaDetalle5);
 //            factura.calcularTotal();
 //            em.persist(factura2);
-//            tx.commit();
 
-            FacturaManager facturaManager  = new FacturaManager(false);
+            em.getTransaction().commit();
+            FacturaManager facturaManager  = new FacturaManager(true);
+            ClienteManager clienteManager = new ClienteManager(true);
+            FacturaDetalleManager facturaDetalleManager = new FacturaDetalleManager(true);
 
+            for (Cliente c : clienteManager.getClientes()){
+                System.out.println("Cliente ID: " + c.getId() + "\n" +
+                        "CUIT: " + c.getCuit() + "\n" +
+                        "Razon social: " + c.getRazonSocial()+ "\n"
+                );
+            }
 
+            for (Factura f : facturaManager.getFacturaDeUltimoMes()){
+                System.out.println("N° comprobante: " + f.getNroComprobante() + "\n" +
+                        "Cliente: " + f.getCliente().getId() + "\n" +
+                        "Fecha: " + f.getFechaComprobante() + "\n"
+                        );
 
+            }
 
+            System.out.println("Cliente ID con mas facturas: " + facturaManager.getClienteConMasFacturas().getId() + "\n");
 
+            for (Articulo a : facturaDetalleManager.getArticulosMasVendidos()){
+                System.out.println("Articulo: " + a.denominacion);
+            }
 
             em.close();
             emf.close();

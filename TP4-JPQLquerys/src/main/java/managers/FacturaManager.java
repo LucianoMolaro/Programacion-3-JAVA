@@ -1,18 +1,20 @@
 package managers;
 
+import com.mysql.cj.xdevapi.Client;
 import jakarta.persistence.*;
+import org.example.Articulo;
 import org.example.Cliente;
 import org.example.Factura;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 public class FacturaManager {
     EntityManagerFactory emf = null;
     EntityManager em = null;
-    EntityTransaction tx = null;
 
     public FacturaManager(boolean anularShowSQL) {
         Map<String, Object> properties = new HashMap<>();
@@ -36,5 +38,23 @@ public class FacturaManager {
         return facturasDelUltimoMes;
     }
 
+    public Cliente getClienteConMasFacturas(){
+        String jpql = "SELECT f.cliente FROM Factura f  GROUP BY f.cliente ORDER BY COUNT(f) DESC";
+        Query query = em.createQuery(jpql);
+        query.setMaxResults(1);
+        Cliente cliente = (Cliente) query.getSingleResult();
+        return cliente;
+    }
 
+    public List<Factura> getFacturasUltimos3mesesxId(int id){
+        String jpql = "SELECT c FROM Factura c WHERE c.cliente.id= :idcliente AND c.fechaComprobante >= :fechaInicio";
+        Query query = em.createQuery(jpql);
+        LocalDate fechaA = LocalDate.now().minusMonths(3);
+        query.setParameter("idcliente", id);
+        query.setParameter("fechaInicio", fechaA);
+        List<Factura> facturas = query.getResultList();
+        return facturas;
+
+
+    }
 }
