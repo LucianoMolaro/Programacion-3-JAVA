@@ -67,7 +67,7 @@ public class FacturaManager {
     }
 
     public Articulo getArticuloMasCaroXId(int id){
-        String jpql = "SELECT art.precioVenta FROM Factura a JOIN a.detallesFactura d JOIN d.articulo art WHERE a.id = :id ORDER BY art.precioVenta DESC";
+        String jpql = "SELECT art FROM Factura a JOIN a.detallesFactura d JOIN d.articulo art WHERE a.id = :id ORDER BY art.precioVenta DESC";
 
         Query query = em.createQuery(jpql);
         query.setParameter("id", id);

@@ -36,6 +36,13 @@ public class Factura {
     public Factura() {
     }
 
+    public Factura(LocalDate fechaAlta, LocalDateTime fechaBaja, LocalDate fechaComprobante, Long nroComprobante, Integer puntoVenta) {
+        this.fechaAlta = fechaAlta;
+        this.fechaBaja = fechaBaja;
+        this.fechaComprobante = fechaComprobante;
+        this.nroComprobante = nroComprobante;
+        this.puntoVenta = puntoVenta;
+    }
     public Factura(Cliente cliente, LocalDate fechaAlta, LocalDateTime fechaBaja, LocalDate fechaComprobante, Long nroComprobante, Integer puntoVenta) {
         this.cliente = cliente;
         this.fechaAlta = fechaAlta;
