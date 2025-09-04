@@ -12,14 +12,8 @@ import java.util.List;
 public class AgendaController {
 
 
-    private final AgendaService as;
-
-    public AgendaController(AgendaService service) {
-        this.as = service;
-    }
-
-    @PostMapping("/guardarTodos")
-    public void guardarPredeterminados(){ as.}
+    @Autowired
+    private AgendaService as;
 
 
     @GetMapping

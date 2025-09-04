@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 //import org.slf4j.LoggerFactory;
 //import ch.qos.logback.classic.Level;
 //import ch.qos.logback.classic.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,10 +18,8 @@ import java.util.List;
 @Service
 public class AgendaService {
 
-    private final AgendaRepository ar;
-    public AgendaService(AgendaRepository ar) {
-        this.ar = ar;
-    }
+    @Autowired
+    private AgendaRepository ar;
 
     private List<Agenda> contactos = new ArrayList<>();
 
@@ -32,7 +31,15 @@ public class AgendaService {
         contactos.add(new Agenda("Yamal", "Calle 5", "lamine@mail.com", "Lamine", 555555555L));
         contactos.add(new Agenda("Busquets", "Calle 6", "sergio@mail.com", "Sergio", 666666666L));
     }
-@Transactional //no necesito obbtener conexion gettransaction ni cerrar emclose
+
+    @Transactional
+    public void guardarTodos(){
+        for (Agenda a : contactos){
+            ar.crearContacto(a);
+        }
+    }
+
+    @Transactional //no necesito obbtener conexion gettransaction ni cerrar emclose
     public List<Agenda> listar(){
         return contactos;
     }
@@ -64,7 +71,7 @@ public class AgendaService {
     }
 
     @Transactional
-    public void eliminarId(Long id) {
+    public void eliminarId(Long id){
         ar.eliminarPorId(id);
     }
 

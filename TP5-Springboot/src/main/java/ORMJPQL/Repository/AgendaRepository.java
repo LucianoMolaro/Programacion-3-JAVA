@@ -25,14 +25,7 @@ public class AgendaRepository {
 
     @Transactional
     public void crearContacto(Agenda a){
-        String jpql = "INSERT INTO agenda (nombre, apellido, domicilio, email, telefono) VALUES (?, ?, ?, ?, ?)";
-        Query query = em.createNativeQuery(jpql);
-        query.setParameter(1, a.getNombre());
-        query.setParameter(2, a.getApellido());
-        query.setParameter(3, a.getDomicilio());
-        query.setParameter(4, a.getEmail());
-        query.setParameter(5, a.getTelefono());
-        query.executeUpdate();
+        em.persist(a);
     }
 
     public List<Agenda> mostrarTodosLosContactos(){
@@ -52,15 +45,8 @@ public class AgendaRepository {
 
 
     public Agenda agregarContacto(Agenda a){
-        String jpql = "INSERT INTO agenda (nombre, apellido, domicilio, email, telefono) VALUES (?, ?, ?, ?, ?)";
-        Query query = em.createNativeQuery(jpql);
-        query.setParameter(1, a.getNombre());
-        query.setParameter(2, a.getApellido());
-        query.setParameter(3, a.getDomicilio());
-        query.setParameter(4, a.getEmail());
-        query.setParameter(5, a.getTelefono());
-        query.executeUpdate();
-        return (Agenda) query.getSingleResult();
+        em.persist(a);
+        return a;
     }
 
     // a) Todos los ítems
