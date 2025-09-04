@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 public class Persona {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
+    protected int id;
 
     @Column(nullable = false, length = 100)
     private String nombre;

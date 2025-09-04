@@ -10,8 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class Home {
-    @Autowired
-    AgendaService as;
+
 
 
     @GetMapping("/")
@@ -19,9 +18,9 @@ public class Home {
         return "Bienvenido a la API REST!";
     }
 
-    @PostMapping("/")
+/*    @PostMapping("/")
     public void guardar(){
         as.guardarTodos();
-    };
+    };*/
 
 }

@@ -7,9 +7,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "medicos")
 public class Medico extends Persona{
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
+
 
     @Column(nullable = false,unique = true)
     private int matricula;

@@ -8,17 +8,15 @@ import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public class AgendaRepository {
 
     @PersistenceContext
     private EntityManager em;
 
-
-    @Autowired
-    AgendaService as;
 
     public AgendaRepository() {
     }
@@ -29,7 +27,7 @@ public class AgendaRepository {
     }
 
     public List<Agenda> mostrarTodosLosContactos(){
-        return em.createQuery("SELECT a FROM agenda a", Agenda.class).getResultList();
+        return em.createQuery("SELECT a FROM Agenda a", Agenda.class).getResultList();
     }
 
     public Agenda obtenerPorId(Long id){
