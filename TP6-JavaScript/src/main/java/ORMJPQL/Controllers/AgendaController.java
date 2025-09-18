@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/agenda/contactos")
+@CrossOrigin(origins = "*")
 public class AgendaController {
 
 

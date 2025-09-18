@@ -16,13 +16,13 @@
       <nav id="">
         <ul id="funciones">
           <li>
-            <button id="buscador">B</button>
-            <label id="labelBuscador"></label>
-            <input type="search" id="contacto" name="buscadorContacto" placeholder="Nombre, apellido, mail, domicilio o telefono">
+            <button id="buscador">Buscar</button>
+            <label id="labelBuscador" style="display: none;"></label>
+            <input type="search" id="contacto" name="buscadorContacto" placeholder="Nombre, apellido, mail, domicilio o telefono" style="display: none;">
           </li>
           <li>
             <button id="agregar">iconoAgregar</button>
-            <form form="Contacto" id="agregarContacto">
+            
               <fieldset>
                 <legend>Datos del contacto</legend>
 
@@ -41,13 +41,14 @@
                 <label>Telefono: </label>
                 <input type="tel" id="telefono" name="telefono" placeholder="Ej: Martin" required>
 
-                <button type="submit" name= "guardarContacto" id="guardarContacto">Guardar</button>
+                <button type="button" onclick="guardarContacto()" name= "guardarContacto" id="guardarContacto">Guardar</button>
               </fieldset>
               
-            </form>
+           
           </li>
           <li>
-            <button id="eliminar" name="eliminar">iconoEliminar</button>
+            <button id="eliminar" name="eliminar">Eliminar</button>
+            <button id="btnEditarSeleccionado">Editar</button>
           </li>
         </ul>
       </nav>
