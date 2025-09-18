@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Agenda</h1>
+  </header>
+  <main>
+    <div name="barraFunciones" id="barraFunciones">
+      <h3 id="titulo">Contactos</h3>
+      <nav id="">
+        <ul id="funciones">
+          <li>
+            <button id="buscador">B</button>
+            <label id="labelBuscador"></label>
+            <input type="search" id="contacto" name="buscadorContacto" placeholder="Nombre, apellido, mail, domicilio o telefono">
+          </li>
+          <li>
+            <button id="agregar">iconoAgregar</button>
+            <form form="Contacto" id="agregarContacto">
+              <fieldset>
+                <legend>Datos del contacto</legend>
+
+                <label>Nombre: </label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Mateo" required>
+
+                <label>Apellido: </label>
+                <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzales" required>
+
+                <label>Email: </label>
+                <input type="mail" id="email" name="email" placeholder="Ej: martin@mail.com" required>
+
+                <label>Domicilio: </label>
+                <input type="text" id="domicilio" name="domicilio" placeholder="Ej: calle 2, ciudad" required>
+
+                <label>Telefono: </label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ej: Martin" required>
+
+                <button type="submit" name= "guardarContacto" id="guardarContacto">Guardar</button>
+              </fieldset>
+              
+            </form>
+          </li>
+          <li>
+            <button id="eliminar" name="eliminar">iconoEliminar</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div name="lista" id="lista">
+      <nav>
+        <ul id="listaGuardados">
+        </ul>
+      </nav>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
