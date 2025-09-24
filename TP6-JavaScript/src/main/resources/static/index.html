@@ -22,29 +22,27 @@
           </li>
           <li>
             <button id="agregar">iconoAgregar</button>
-            <form form="Contacto" id="agregarContacto">
+            
               <fieldset>
                 <legend>Datos del contacto</legend>
 
-                <label>Nombre: </label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Mateo" required>
+                
+                <input type="text" id="nombre" placeholder="Ej: Mateo" required>
 
-                <label>Apellido: </label>
-                <input type="text" id="apellido" name="apellido" placeholder="Ej: Gonzales" required>
+                
+                <input type="text" id="apellido" placeholder="Ej: Gonzales" required>
 
-                <label>Email: </label>
-                <input type="mail" id="email" name="email" placeholder="Ej: martin@mail.com" required>
+                
+                <input type="mail" id="email"  placeholder="Ej: martin@mail.com" required>
 
-                <label>Domicilio: </label>
-                <input type="text" id="domicilio" name="domicilio" placeholder="Ej: calle 2, ciudad" required>
+                
+                <input type="text" id="domicilio"  placeholder="Ej: calle 2, ciudad" required>
 
-                <label>Telefono: </label>
-                <input type="tel" id="telefono" name="telefono" placeholder="Ej: Martin" required>
-
-                <button type="submit" name= "guardarContacto" id="guardarContacto">Guardar</button>
+               
+                <input type="tel" id="telefono" placeholder="Ej: Martin" required>
+                <button type="button" onclick="guardarContacto()">guardar</button>
               </fieldset>
-              
-            </form>
+        
           </li>
           <li>
             <button id="eliminar" name="eliminar">iconoEliminar</button>

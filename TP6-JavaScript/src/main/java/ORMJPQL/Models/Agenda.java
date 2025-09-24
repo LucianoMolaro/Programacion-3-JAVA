@@ -17,12 +17,12 @@ public class Agenda {
     @Column(name = "Domicilio")
     private String domicilio;
     @Column(name = "N° Celular", unique = true)
-    private String telefono;
+    private Long telefono;
 
     public Agenda() {
     }
 
-    public Agenda(String apellido, String domicilio, String email, String nombre, String telefono) {
+    public Agenda(String apellido, String domicilio, String email, String nombre, Long telefono) {
         this.apellido = apellido;
         this.domicilio = domicilio;
         this.email = email;
@@ -70,11 +70,11 @@ public class Agenda {
         this.nombre = nombre;
     }
 
-    public String getTelefono() {
+    public Long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(Long telefono) {
         this.telefono = telefono;
     }
 }

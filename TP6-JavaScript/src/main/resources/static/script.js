@@ -1,7 +1,10 @@
 const API_URL = "http://localhost:8080/agenda/contactos";
 
 // Cargar lista al iniciar
-//document.addEventListener("DOMContentLoaded", cargarAgendas);
+document.addEventListener("DOMContentLoaded", () => {
+//  guardarContacto();
+  cargarAgendas();
+});
 
 // Manejar formulario
 /*document.getElementById("agendaForm").addEventListener("submit", async (e) => {
@@ -48,29 +51,18 @@ async function eliminarAgenda(id) {
 }
 
 async function guardarContacto() {
-  document.getElementById("agregarContacto").addEventListener("submit", async (e) => {
-    e.preventDefault();
     const nombre = document.getElementById("nombre").value;
     const apellido = document.getElementById("apellido").value;
     const email = document.getElementById("email").value;
     const domicilio = document.getElementById("domicilio").value;
-    const telefono = document.getElementById("telefono").value;
+    const telefono = Number(document.getElementById("telefono").value);
 
-      await fetch(API_URL, {
+    await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json"},
     body: JSON.stringify({ nombre, apellido, email, domicilio, telefono})
   });
-  document.getElementById("agregarContacto").reset();
+//  document.getElementById("agregarContacto").reset();
   cargarAgendas();
-
-    
-
-
-
-
-
-
-  })
-
-}
+  
+  }

@@ -35,7 +35,7 @@ public class AgendaController {
 
 
     @PostMapping
-    public void agregarContacto(@ModelAttribute Agenda agenda) {
+    public void agregarContacto(@RequestBody Agenda agenda) {
         System.out.println("recibido: " + agenda);
         as.agregarContacto(agenda);
     }
