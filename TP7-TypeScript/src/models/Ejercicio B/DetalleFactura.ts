@@ -1,32 +1,28 @@
 import { Articulo } from "./Articulo";
 import { Factura } from "./Factura";
 
+export class DetalleFactura {
+  cantidad: number;
+  subtotal: number;
+  articulo: Articulo;
+  factura: Factura;
 
-export class DetalleFactura{
-    cantidad: number;
-    subtotal: number;
-    articulo: Articulo;
-    factura: Factura;
+  constructor(cantidad: number) {
+    this.cantidad = cantidad;
+    this.subtotal = 0;
+    this.articulo = new Articulo(0, 0, "", "");
+    this.factura = new Factura("", 0, "", new Date());
+  }
 
-    constructor(cantidad: number, st: number) {
-        this.cantidad = cantidad;
-        this.subtotal = st;
-        this.articulo = new Articulo(0,0,"","");
-        this.factura = new Factura("", 0,"",new Date());
-    }
+  calcularSubtotal() {
+    this.subtotal = this.cantidad * this.articulo.precio;
+  }
 
-    calcularSubtotal(){
-        this.subtotal = this.cantidad * this.articulo.precio;
-    }
+  setFactura(f: Factura) {
+    this.factura = f;
+  }
 
-    setFactura(f: Factura){
-        this.factura = f;
-    }
-
-    setArticulo(a:Articulo){
-        this.articulo = a;
-    }
-
-
-
+  setArticulo(a: Articulo) {
+    this.articulo = a;
+  }
 }

@@ -1,10 +1,11 @@
 {
   "name": "tp7-typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "proyecto",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \" tsc --watch\" \"nodemon dist/index.js\"",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,6 @@
     "@types/mysql": "^2.15.27",
     "express": "^5.1.0",
     "mysql": "^2.18.1"
-  }
+  },
+  "description": ""
 }
