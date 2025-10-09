@@ -1,0 +1,52 @@
+html {
+  height: 90%;        
+  margin: 0.5rem;           
+  padding: 0.5em;   
+  display: grid;
+  place-items: center;   
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;    
+}
+body{
+  width: 60%;
+}
+
+.formulario{
+  align-content: center;
+  display: flex;
+  padding: 10%;
+  background-color: #c2e9e9;
+  border-radius: 3%;
+}
+
+.input, input{
+  padding: 1%;
+  width: 100%;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.activo{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  width: 99%;
+}
+
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+button {
+  width: max-content;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: oblique;  
+  background-color: #7fe7ff;
+  border-color: #7fe7ff;
+}

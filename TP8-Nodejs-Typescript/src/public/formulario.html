@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Empleado</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="formulario">
+        <form>
+            <h2>Empleado</h2>
+            <div class="input">
+                <label></label>
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            </div>
+            <div class="input">
+                <label></label>
+                <input type="text" name="apellido" id="apellido" placeholder="Apellido"></input>
+            </div>
+            <div class="input">
+                <label></label>
+                <input type="text" name="dni" id="dni" placeholder="Numero de documento">
+            </div>
+            <div class="input">
+                <label></label>
+                <input type="text" name="sector" id="sector" placeholder="Sector">
+            </div>
+            <div class="input">
+                <label></label>
+                <input type="date" name="fechaIngreso" id="fechaIngreso" placeholder="Fecha de ingreso">
+            </div>
+            <div class="activo">
+                <p>¿Activo?</p>
+                <select name="activo" id="activo" title="Activo">
+                    <option value="sí">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <button type="button" name="Guardar" id="Guardar">Guardar</button>
+        </form>
+    </div>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
