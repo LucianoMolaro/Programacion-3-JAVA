@@ -5,7 +5,7 @@ const mysql_1 = require("mysql");
 exports.empleadodb = (0, mysql_1.createPool)({
     host: 'localhost',
     user: 'admin',
-    password: '987645',
+    password: '',
     database: 'empleadodb',
     connectionLimit: 100
 });

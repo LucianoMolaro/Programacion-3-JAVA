@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <section class="contenidoGeneral">
+        <div class="titulo">
+            <h1>Empleados</h1>
+        </div>
+        <div class="opciones">
+            <div class="descripcionFiltros">
+                <div class="descripcion">
+                    <p>Legajo</p>
+                    <div  class="filtro">
+                        <button type="button" data-orden="descLegajo">▼</button>
+                        <button type="button" data-orden="ascLegajo">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>Nombre</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descNombre">▼</button>
+                        <button type="button" data-orden="ascNombre">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>Apellido</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descApellido">▼</button>
+                        <button type="button" data-orden="ascApellido">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>D.N.I.</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descDni">▼</button>
+                        <button type="button"data-orden="ascDni">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>Sector</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descSector">▼</button>
+                        <button type="button" data-orden="ascSector">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>Fecha de ingreso</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descFecha">▼</button>
+                        <button type="button" data-orden="ascFecha">▲</button>
+                    </div>
+                </div>
+                <div class="descripcion">
+                    <p>¿Activo?</p>
+                    <div class="filtro">
+                        <button type="button" data-orden="descActivo">▼</button>
+                        <button type="button" data-orden="ascActivo">▲</button>
+                    </div>
+                </div>
+            </div>
+            <div class="acciones">
+                <button type="button" id="agregar"><img src="./img/agregar-usuario.png" alt="agregar"></button>
+                <button type="button" id="editar"><img src="./img/editar.png" alt="editar"></button>
+                <button type="button" id="eliminar"><img src="./img/eliminar-usuario.png" alt="eliminar"></button>
+            </div>
+        </div>
+        <div class="resultados">
+            <div class="tabla-resultados">
+                <p>hola</p>
+                <p>chau</p>
+                <p>dnidede</p>
+                <p>6545484</p>
+                <p>28/77/5416</p>
+                <p>oficina</p>
+                <p>Si</p>
+            </div>
+            <div class="eliminar-editar">
+                <button>x</button>
+                <button>x</button>
+            </div>
+        </div>
+    </section>    
+    <section name="formulario">
+    </section>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

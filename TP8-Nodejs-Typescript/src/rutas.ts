@@ -1,12 +1,14 @@
 
-import { fileURLToPath } from "url";
+import path from "path"
 import { Router } from "express";
 const router = Router();
-import { cargarEmpleado, mostrarFomulario } from "./controlador/controlador";
+import { cargarEmpleado, obtenerEmpleados} from "./controlador/controlador";
 
 router.get('/test', (requ, resp) => resp.send("HOLA MUNDO"))
 
-router.get('/formulario', mostrarFomulario)
-router.post('/formulario', cargarEmpleado)
+// router.get('/formulario', (req, res)=> res.sendFile(path.join(__dirname, '../src/public/formulario.html')))
+router.get('/empleados', (req, res)=> res.sendFile(path.join(__dirname, '../src/public/empleados.html')))
+router.get('/api/empleados', obtenerEmpleados)
+router.post('/empleados', cargarEmpleado)
 
 export default router;
