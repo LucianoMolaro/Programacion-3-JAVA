@@ -4,29 +4,23 @@ const botones = document.querySelectorAll("button[data-orden]");
 
 document.addEventListener("DOMContentLoaded", async () => {
     
-    // Cargar y mostrar empleados iniciales
     const listaEmp = await obtenerEmpleados();
     mostrarEmpleados(listaEmp);
 
-    // **************** CORRECCIONES Y VINCULACIÓN DE EVENTOS ****************
     
-    // 1. Botón 'eliminar' (Corrección de document.get a document.getElementById y llamado sin paréntesis)
-    const eliminar = document.getElementById("eliminar") // CORRECCIÓN
-    if(eliminar) eliminar.addEventListener("click", eliminarEmpleado) // CORRECCIÓN: pasar la referencia de la función
+    const eliminar = document.getElementById("eliminar") 
+    if(eliminar) eliminar.addEventListener("click", eliminarEmpleado) 
 
-    // 2. Botón 'agregar' (Botón principal: debe LLAMAR a darAlta para MOSTRAR el formulario)
     const agregarBtn = document.getElementById("agregar")
     if(agregarBtn) agregarBtn.addEventListener("click", darAlta) 
 
-    // 3. Botón 'editar' (Llamado sin paréntesis)
     const editar = document.getElementById("editar")
-    if(editar) editar.addEventListener("click", editarEmpleado) // CORRECCIÓN: pasar la referencia de la función
+    if(editar) editar.addEventListener("click", editarEmpleado) 
     
-    // 4. NUEVO: Botón 'Guardar' dentro del formulario
+    
     const btnGuardarForm = document.getElementById("btn-guardar-form");
     if(btnGuardarForm) btnGuardarForm.addEventListener("click", guardarEmpleado); 
 
-    // 5. NUEVO: Botón 'Cancelar' dentro del formulario
     const btnCancelarForm = document.getElementById("btn-cancelar-form");
     if(btnCancelarForm) btnCancelarForm.addEventListener("click", aparecer); // Aparecer oculta el formulario
 
@@ -35,12 +29,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 function mostrarEmpleados(listaEmpleados) {
 
     const info = document.querySelector("#resultados");
-    info.innerHTML = ""; // vaciamos primero
+    info.innerHTML = ""; 
 
-    listaEmpleados.forEach(emp => {
-        // CORRECCIÓN: document.createElement solo debe tener el nombre de la etiqueta
+    listaEmpleados.forEach(emp => { 
+        
         const div = document.createElement("div"); 
-        div.className = "tabla-resultados"; // Usa la clase que tienes en tu HTML
+        div.className = "tabla-resultados"; 
 
         div.innerHTML = `
             <p>${emp.legajo}</p>
@@ -53,9 +47,8 @@ function mostrarEmpleados(listaEmpleados) {
             <button>eliminar X</button>
         `;
 
-        // CORRECCIÓN: document.createElement solo debe tener el nombre de la etiqueta
         const div2 = document.createElement("div"); 
-        div2.className = "eliminar-editar"; // Usa la clase que tienes en tu HTML
+        div2.className = "eliminar-editar"; 
 
         div2.innerHTML = `
             <button type="button" class="btnConfirmar">x</button>
@@ -113,12 +106,10 @@ async function guardarEmpleado() {
             console.log("Empleado cargado correctamente:", resultado);
             alert("Empleado guardado correctamente ✅");
             
-            aparecer(); // Ocultar el formulario después de guardar
-            // Recargar la lista de empleados para que se vea el nuevo
+            aparecer(); 
             const listaEmp = await obtenerEmpleados();
             mostrarEmpleados(listaEmp);
             
-            // window.location.href = "/empleados"; // Descomentar si quieres recargar la página completa
         } else {
             console.error("Error al guardar empleado:", respuesta.statusText);
             alert("Error al guardar el empleado ❌");
@@ -129,14 +120,12 @@ async function guardarEmpleado() {
     }
 }
 async function editarEmpleado(){
-    // ... (Tu código original)
-    // Es recomendable modificar esta función para que lea inputs de un formulario de edición en el futuro.
-    /* ... */
+    //Terminarla)
 };
 
 
 async function eliminarEmpleado(){
-   
+   //terminar esta funcion tambien
 }
 
 
@@ -164,15 +153,15 @@ async function obtenerEmpleados(){
 
 
 function ordenarAsc(criterio){
-    // ... (Tu código original)
+    //a terminar
     switch(criterio){
-        case 'descLegajo': const descl = document.g // CORRECCIÓN PENDIENTE en tu código original
+        case 'descLegajo': const descl = document.g 
     }
 }
 
 function aparecer(){
     const formulario = document.getElementById("formulario-empleado");
     if(formulario) {
-        formulario.style.display = "none"; // Oculta el formulario
+        formulario.style.display = "none";
     }
 }
