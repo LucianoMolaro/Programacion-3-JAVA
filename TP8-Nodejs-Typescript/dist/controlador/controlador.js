@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.obtenerEmpleados = exports.cargarEmpleado = void 0;
+exports.obtenerEmpleados = exports.editarEmpleado = exports.cargarEmpleado = void 0;
 const mysqldb_1 = require("../mysqldb");
 const cargarEmpleado = (requ, resp) => {
     const { nombre, apellido, dni, sector, legajo, fechaIngreso, activo } = requ.body;
@@ -24,6 +24,10 @@ const cargarEmpleado = (requ, resp) => {
     });
 };
 exports.cargarEmpleado = cargarEmpleado;
+const editarEmpleado = (requ, resp) => {
+    requ.body;
+};
+exports.editarEmpleado = editarEmpleado;
 const obtenerEmpleados = (req, resp) => {
     mysqldb_1.empleadodb.getConnection((err, connection) => {
         if (err) {

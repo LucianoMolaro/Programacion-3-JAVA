@@ -1,6 +1,7 @@
 import { error } from "console";
 import { empleadodb } from "../mysqldb";
 import { Request, Response } from "express";
+import { request } from "http";
 
 
 export const cargarEmpleado = (requ: Request, resp: Response) => {
@@ -23,7 +24,10 @@ export const cargarEmpleado = (requ: Request, resp: Response) => {
 
     })
 }
-
+export const editarEmpleado= (requ:Request, resp:Response)=>{
+requ.body
+                        
+}
 export const obtenerEmpleados = (req: any, resp: Response) => {
     empleadodb.getConnection((err, connection) => {
         if(err) {

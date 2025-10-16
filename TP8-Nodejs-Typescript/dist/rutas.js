@@ -12,5 +12,6 @@ router.get('/test', (requ, resp) => resp.send("HOLA MUNDO"));
 router.get('/empleados', (req, res) => res.sendFile(path_1.default.join(__dirname, '../src/public/empleados.html')));
 router.get('/api/empleados', controlador_1.obtenerEmpleados);
 router.post('/empleados', controlador_1.cargarEmpleado);
+router.put('/empleados', controlador_1.editarEmpleado);
 exports.default = router;
 //# sourceMappingURL=rutas.js.map
