@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @Builder
 public class PedidoDTO {
+    private String id;
     private String clienteNombre;
     private List<ProductoDTO> productos;
     private String fechaPedido;

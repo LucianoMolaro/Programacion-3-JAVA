@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="botonIniciar">
+        <button type="button" id="comenzar">Comenzar</button>
+    </div>
+    <section class="info info--ocultar">
+        <table class="pedidos">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio total</th>
+                    <th>Detalle</th>
+                </tr>
+            </thead>
+            <tbody id="pedidos">
+            </tbody>
+        </table>
+    </section>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="cerrar" class="cerrar">&times;</span>
+            <h2>Detalle del pedido</h2>
+            <ul id="detalleProductos"></ul>
+        </div>
+    </div>
+
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>

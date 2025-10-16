@@ -15,13 +15,17 @@ import java.util.List;
 
 public class FuncionApp {
     public static String getFechaString(LocalDate fecha){
-        return "Día " + String.valueOf(fecha.getDayOfMonth()) + " del mes " + String.valueOf(fecha.getMonth()) + " del año " + String.valueOf(fecha.getYear());
+        return
+                "Día " +
+                String.valueOf(fecha.getDayOfMonth()) +
+                " del mes " + String.valueOf(fecha.getMonth()) +
+                " del año " + String.valueOf(fecha.getYear());
     }
 
     public static void crearPedidos(){
         ClienteRepository cr = new ClienteRepository();
         PedidoRepository pr = new PedidoRepository();
-        ProductoRepository pror = new ProductoRepository();
+//        ProductoRepository pror = new ProductoRepository();
 
         Cliente cliente1 = Cliente.builder().nombre("Luciano").email("luciano@mail.com").telefono("3216549872").build();
         cr.guardar(cliente1);
@@ -50,6 +54,7 @@ public class FuncionApp {
         productos.add(L2);
         productos.add(L3);
         l1.setProductos(productos);
+        l1.calcularTotal();
         l1.setCliente(cliente1);
         pr.guardar(l1);
 
@@ -62,6 +67,7 @@ public class FuncionApp {
         productos.add(L5);
         productos.add(L6);
         l2.setProductos(productos);
+        l2.calcularTotal();
         l2.setCliente(cliente1);
         pr.guardar(l2);
 
@@ -73,6 +79,7 @@ public class FuncionApp {
         productos.add(L8);
         productos.add(L9);
         l3.setProductos(productos);
+        l3.calcularTotal();
         l3.setCliente(cliente1);
         pr.guardar(l3);
 
@@ -85,6 +92,7 @@ public class FuncionApp {
         productos.add(F2);
         productos.add(F3);
         f1.setProductos(productos);
+        f1.calcularTotal();
         f1.setCliente(cliente2);
         pr.guardar(f1);
 
@@ -96,6 +104,7 @@ public class FuncionApp {
         productos.add(F5);
         productos.add(F6);
         f2.setProductos(productos);
+        f2.calcularTotal();
         f2.setCliente(cliente2);
         pr.guardar(f2);
 
@@ -107,6 +116,7 @@ public class FuncionApp {
         productos.add(F8);
         productos.add(F9);
         f3.setProductos(productos);
+        f3.calcularTotal();
         f3.setCliente(cliente2);
         pr.guardar(f3);
 
@@ -118,6 +128,7 @@ public class FuncionApp {
         productos.add(M2);
         productos.add(M3);
         m1.setProductos(productos);
+        m1.calcularTotal();
         m1.setCliente(cliente3);
         pr.guardar(m1);
 
@@ -129,6 +140,7 @@ public class FuncionApp {
         productos.add(M5);
         productos.add(M6);
         m2.setProductos(productos);
+        m2.calcularTotal();
         m2.setCliente(cliente3);
         pr.guardar(m2);
 
@@ -140,6 +152,7 @@ public class FuncionApp {
         productos.add(M8);
         productos.add(M9);
         m3.setProductos(productos);
+        m3.calcularTotal();
         m3.setCliente(cliente3);
         pr.guardar(m3);
     }

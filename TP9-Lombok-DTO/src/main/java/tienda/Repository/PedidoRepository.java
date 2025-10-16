@@ -33,5 +33,12 @@ public class PedidoRepository {
 
     }
 
+    public List<Producto> obtenerProductosDeId(String id){
+        em = emf.createEntityManager();
+        TypedQuery<Producto> query = em.createQuery("SELECT producto FROM Producto p WHERE p.id = :id", Producto.class);
+        query.setParameter(":id", id);
+        return (List<Producto>) query.getResultList();
+    }
+
 
 }

@@ -31,7 +31,7 @@ public class Pedido {
 
     public void calcularTotal(){
         for (Producto p : productos){
-            total+= p.getPrecio();
+            this.total+= p.getPrecio();
         }
     }
 
