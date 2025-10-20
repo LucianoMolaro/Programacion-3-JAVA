@@ -1,29 +1,24 @@
-const boton = document.getElementById("comenzar");
-if(boton){
-    boton.addEventListener("click", async ()=>{
-        const div = document.querySelector(".botonIniciar");
-        div?.classList.add('botonIniciar--ocultar'); 
-    
-    
-        const table = document.querySelector("section");
-        table?.classList.remove("info--ocultar");   
+document.addEventListener("DOMContentLoaded", ()=>{
+    const boton = document.getElementById("comenzar");
+    if (boton) {
+        boton.addEventListener("click", cargarPedidos)
+    };
+})
 
-        await cargarPedidos();
-        await cargarTabla();
-    })
-
-    
-
-}
 
 async function cargarPedidos() {
-    const respuesta = await fetch("http://localhost:3000/SvPedido/CrearPedidos", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({})
-        });
+    alert("Llego a la funcion")
+    const resultado = await fetch("http://localhost:8080/Lombok-DTO/SvPedido/CrearPedidos", {
+        method: "POST",
+        headers: {
+            "content-Type": "application/json"
+        }, 
+        body: JSON.stringify({})
+    })
+
+    if(resultado.ok){
+        alert("se cargo")
+    }
 }
 
 async function cargarTabla() {

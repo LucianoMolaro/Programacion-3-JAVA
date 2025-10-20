@@ -27,6 +27,9 @@ public class PedidoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PedidoRepository pr = new PedidoRepository();
         String path =  obtenerPath(req);
+        System.out.println("Context path: " + req.getContextPath());
+        System.out.println("Servlet path: " + req.getServletPath());
+        System.out.println("Path info: " + req.getPathInfo());
         switch (path){
             case "/ObtenerDetallePedido":
                 String parametro = req.getParameter("id");
@@ -36,20 +39,22 @@ public class PedidoServlet extends HttpServlet {
                         .collect(Collectors.toList());
                 resp.setContentType("application/json");
                 resp.getWriter().write(mapper.writeValueAsString(pdtos));
-            case "/":
+                break;
+            case "/todos":
                 List<Pedido> pedidos = pr.getTodosLosPedidos();
                 List<PedidoDTO> dtos = pedidos.stream()
                         .map(MapperUtil::toPedidoDTO)
                         .collect(Collectors.toList());
                 resp.setContentType("application/json");
                 resp.getWriter().write(mapper.writeValueAsString(dtos));
+                break;
         }
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        if (obtenerPath(req).equalsIgnoreCase("/CrearPedidos")) {
+        if ("/CrearPedidos".equalsIgnoreCase(obtenerPath(req))) {
             FuncionApp.crearPedidos();
         }
     }

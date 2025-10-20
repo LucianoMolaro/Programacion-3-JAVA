@@ -11,7 +11,7 @@
 
     <servlet-mapping>
         <servlet-name>PedidoServlet</servlet-name>
-        <url-pattern>/SvPedido</url-pattern>
+        <url-pattern>/SvPedido/*</url-pattern>
     </servlet-mapping>
 
     <welcome-file-list>

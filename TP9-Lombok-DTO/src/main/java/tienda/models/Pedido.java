@@ -18,7 +18,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate fecha;
-    private Double total = 0.0;
+    private Double total;
 
     @ManyToOne()
     @JoinColumn(name = "cliente_id")
@@ -30,6 +30,7 @@ public class Pedido {
 
 
     public void calcularTotal(){
+        this.total=0.0;
         for (Producto p : productos){
             this.total+= p.getPrecio();
         }
